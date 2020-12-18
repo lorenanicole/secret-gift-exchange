@@ -18,9 +18,11 @@ def select(names):
 
 
 if __name__ == "__main__":
+    print('Drawing names...')
     names_df = pd.read_csv('names.csv')
     gift_pairings = select(names_df.Name.to_list())
     gift_exchange_info = []
+    print('Outputting pairs to csv...')
     for pair in gift_pairings:
         if len(pair) == 2:
             gift_exchange_info.append({
@@ -86,8 +88,8 @@ for indx, person in gift_exchange_df.iterrows():
     messages.append(text)
     messages.append('\n\n\n')
     messages.append(f'===================================')
-
+print('Outputting email text...')
 with open('messages.txt', 'w') as file:
     for message in messages:
         file.writelines(message)
-
+print('Done!')
